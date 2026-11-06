@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Painel de estudos e organização do TCC sobre conversores CC-CC bidirecionais, supercapacitores, PSIM e HIL.">
+  <title>Painel do TCC | Brunna</title>
+  <style>
+    :root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#dce4ee;--brand:#087f8c;--brand2:#0aa6a6;--accent:#f2b134;--ok:#16845b}
+    *{box-sizing:border-box} body{margin:0;font:16px/1.5 Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    header{background:linear-gradient(125deg,#0b3552,#087f8c 60%,#0aa6a6);color:#fff;padding:30px 20px}
+    header>div,main{max-width:1120px;margin:auto} h1{margin:0 0 8px;font-size:clamp(28px,5vw,46px)} header p{max-width:850px;margin:0;color:#e6fbfb}
+    nav{display:flex;gap:8px;overflow:auto;padding:12px 20px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0}
+    nav button{border:0;background:#eef6f7;color:#135b64;padding:9px 13px;border-radius:10px;font-weight:700;cursor:pointer;white-space:nowrap}nav button.active{background:var(--brand);color:#fff}
+    main{padding:20px}.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 7px 22px #20304a0d}.wide{grid-column:span 12}.third{grid-column:span 4}
+    h2{margin:0 0 12px;font-size:21px}h3{margin:0 0 7px;font-size:16px}.muted{color:var(--muted)}.scope{border-left:5px solid var(--accent);padding:12px;background:#fffaf0;border-radius:10px}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.chip{background:#e6f5f5;color:#125e66;padding:5px 9px;border-radius:999px;font-size:13px;font-weight:700}.flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:18px}.box{border:2px solid #5bb2ba;background:#ecfafa;border-radius:12px;padding:15px;text-align:center;font-weight:800}.arrow{font-size:25px;color:var(--brand)}
+    .track{height:11px;background:#e8edf3;border-radius:99px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));width:0}.big{font-size:32px;font-weight:900;color:var(--brand)}
+    .item{padding:12px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.check{display:flex;gap:9px;align-items:flex-start}.check input{width:19px;height:19px;accent-color:var(--brand)}
+    input,textarea,select{width:100%;border:1px solid #c9d3df;border-radius:10px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:110px;resize:vertical}.btn{border:0;background:var(--brand);color:#fff;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer}.row{display:grid;grid-template-columns:1fr auto;gap:8px}.note{background:#f8fafc;border:1px solid var(--line);padding:12px;border-radius:11px;margin-top:9px;white-space:pre-wrap}.callout{background:#eaf7f2;border:1px solid #bce3d2;color:#185b46;padding:13px;border-radius:11px}
+    @media(max-width:760px){.card,.third{grid-column:span 12}.row{grid-template-columns:1fr}nav{position:static}}
+  </style>
+</head>
+<body>
+<header><div><h1>Painel do TCC</h1><p>Organização inicial do estudo sobre conversores CC-CC bidirecionais, supercapacitores, controle digital, simulações no PSIM e validação Hardware-in-the-Loop.</p></div></header>
+<nav aria-label="Seções"><button class="active" data-page="visao">Visão geral</button><button data-page="trilha">Trilha</button><button data-page="materiais">Materiais</button><button data-page="tarefas">Tarefas</button><button data-page="diario">Diário</button><button data-page="orientador">Orientador</button></nav>
+<main>
+<section id="visao" class="page active"><div class="grid">
+ <article class="card wide"><h2>Escopo provisório</h2><div class="scope">Modelagem e simulação, no PSIM, de um conversor CC-CC bidirecional associado a um banco de supercapacitores para suporte a um barramento CC, com desenvolvimento de controle digital e futura validação por Hardware-in-the-Loop.</div><div class="chips"><span class="chip">PSIM</span><span class="chip">CC-CC bidirecional</span><span class="chip">Supercapacitores</span><span class="chip">Controle digital</span><span class="chip">HIL</span></div></article>
+ <article class="card"><h2>Progresso do Passo 1</h2><div id="pct" class="big">0%</div><div class="track"><div id="bar" class="bar"></div></div><p id="summary" class="muted"></p></article>
+ <article class="card"><h2>Próxima ação</h2><div class="callout"><strong>Entender e simular um buck em malha aberta.</strong><br>Registrar entrada, saída, indutor, capacitor, chave, diodo, frequência e duty cycle.</div></article>
+ <article class="card wide"><h2>Arquitetura em estudo</h2><div class="flow"><div class="box">Barramento CC</div><div class="arrow">⇄</div><div class="box">Conversor bidirecional</div><div class="arrow">⇄</div><div class="box">Banco de supercapacitores</div></div></article>
+</div></section>
+<section id="trilha" class="page"><div class="grid" id="stages"></div></section>
+<section id="materiais" class="page"><div class="grid">
+ <article class="card"><h2>Curso principal</h2><h3>Introduction to Digital Control of Power Converters</h3><p class="muted">Prioridade inicial: malha aberta e fechada, buck controlado, resposta a degrau, controle analógico e digital.</p><a href="https://hil.academy/courses/introduction-to-digital-control-of-power-converters/" target="_blank" rel="noopener">Abrir curso</a></article>
+ <article class="card"><h2>HIL Academy</h2><p class="muted">Base para compreender simulação em tempo real, Virtual HIL e Controller-HIL.</p><a href="https://www.typhoon-hil.com/solutions/academic-research/hil-academy/" target="_blank" rel="noopener">Abrir HIL Academy</a></article>
+ <article class="card"><h2>REP_2025_0027_crossmark.pdf</h2><p class="muted">Ler primeiro: resumo, introdução, arquitetura, estratégia de controle, resultados HIL e conclusão.</p></article>
+ <article class="card"><h2>main.pdf</h2><p class="muted">Usar como contexto de operação dinâmica, transitórios, eficiência em baixa carga e possível papel de armazenamento rápido.</p></article>
+</div></section>
+<section id="tarefas" class="page"><div class="grid"><article class="card"><h2>Checklist do Passo 1</h2><div id="tasks"></div></article><article class="card"><h2>Adicionar tarefa</h2><div class="row"><input id="newTask" maxlength="120" placeholder="Ex.: instalar o PSIM"><button class="btn" id="addTask">Adicionar</button></div><p class="muted">Nesta versão, os dados ficam salvos neste navegador. A etapa seguinte conectará o Supabase para sincronizar entre computadores.</p></article></div></section>
+<section id="diario" class="page"><div class="grid"><article class="card"><h2>Nova anotação</h2><textarea id="note" maxlength="1500" placeholder="O que aprendi, dúvidas, decisão e próximo passo..."></textarea><button class="btn" id="saveNote">Salvar</button></article><article class="card"><h2>Registros</h2><div id="notes"></div></article></div></section>
+<section id="orientador" class="page"><div class="grid"><article class="card wide"><h2>Perguntas pendentes</h2><div id="questions"></div></article></div></section>
+</main>
+<script>
+const key='tcc-brunna-v1';
+const initial={tasks:[['Reescrever o escopo com minhas palavras',false],['Criar glossário com 20 termos',false],['Ler as seções prioritárias do artigo principal',false],['Concluir o primeiro módulo do curso',false],['Desenhar os blocos do sistema',false],['Montar buck básico no PSIM',false],['Levar perguntas ao orientador',false]],notes:[]};
+let state;try{state=JSON.parse(localStorage.getItem(key))||initial}catch(e){state=initial}
+const save=()=>localStorage.setItem(key,JSON.stringify(state));
+const stages=[['1. Fundamentos','Tensão, corrente, potência, L, C, PWM, duty cycle, buck e boost.'],['2. Conversor bidirecional','Fluxos buck e boost, estados das chaves e controle de corrente.'],['3. Supercapacitores','Energia, ESR, tensão variável, associação e balanceamento.'],['4. Controle digital','Malha fechada, PI, amostragem e discretização.'],['5. PSIM','Testes de degrau, inversão de potência e limites.'],['6. HIL','Planta em tempo real, controlador, PWM, medições e proteções.']];
+document.querySelector('#stages').innerHTML=stages.map((s,i)=>`<article class="card third"><h2>${s[0]}</h2><p class="muted">${s[1]}</p><span class="chip">${i===0?'AGORA':'DEPOIS'}</span></article>`).join('');
+const qs=['O conversor será isolado ou não isolado?','Quais são as tensões mínima, nominal e máxima do barramento CC?','Qual banco ou modelo de supercapacitor será utilizado?','A variável principal será tensão, corrente ou potência?','Qual topologia deve ser avaliada?','A etapa HIL usará Typhoon HIL e qual controlador?','Haverá montagem física?','Quais testes e métricas definirão o sucesso?'];
+document.querySelector('#questions').innerHTML=qs.map(q=>`<div class="item check"><input type="checkbox"><span>${q}</span></div>`).join('');
+function renderTasks(){const box=document.querySelector('#tasks');box.innerHTML='';state.tasks.forEach((t,i)=>{const d=document.createElement('div');d.className='item check';const c=document.createElement('input');c.type='checkbox';c.checked=t[1];c.onchange=()=>{state.tasks[i][1]=c.checked;save();renderTasks()};const s=document.createElement('span');s.textContent=t[0];d.append(c,s);box.append(d)});const done=state.tasks.filter(t=>t[1]).length,p=Math.round(done/state.tasks.length*100)||0;document.querySelector('#pct').textContent=p+'%';document.querySelector('#bar').style.width=p+'%';document.querySelector('#summary').textContent=`${done} de ${state.tasks.length} tarefas concluídas.`}
+function renderNotes(){const b=document.querySelector('#notes');b.innerHTML=state.notes.length?'':'<p class="muted">Nenhuma anotação registrada.</p>';state.notes.forEach(n=>{const d=document.createElement('div');d.className='note';d.textContent=n;b.append(d)})}
+document.querySelector('#addTask').onclick=()=>{const i=document.querySelector('#newTask'),v=i.value.trim();if(!v)return;i.value='';state.tasks.push([v,false]);save();renderTasks()};
+document.querySelector('#saveNote').onclick=()=>{const i=document.querySelector('#note'),v=i.value.trim();if(!v)return;i.value='';state.notes.unshift(new Date().toLocaleDateString('pt-BR')+'\n'+v);save();renderNotes()};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelector('#'+b.dataset.page).classList.add('active')});
+renderTasks();renderNotes();
+</script>
+</body></html>
